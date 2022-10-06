@@ -32,7 +32,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
         holder.binding.movieName.text = movieList[position].title
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount( ): Int {
         return movieList.size
     }
 }
