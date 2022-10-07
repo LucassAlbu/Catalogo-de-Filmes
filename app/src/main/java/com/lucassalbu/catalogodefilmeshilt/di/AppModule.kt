@@ -17,8 +17,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-private const val USER_PREFERENCES = "user_preferences"
-
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -27,21 +25,8 @@ object AppModule {
     @Provides
     fun provideRepository(
         apiInterface: ApiInterface,
-
-    ): Repository {
-        return RepositoryCDF( apiInterface)
+        ): Repository {
+        return RepositoryCDF(apiInterface)
     }
-//    @Singleton
-//    @Provides
-//    fun providePreferencesDataStore(
-//        @ApplicationContext appContext: Context
-//    ): DataStore<Preferences> {
-//        return PreferenceDataStoreFactory.create(
-//            corruptionHandler = ReplaceFileCorruptionHandler(
-//                produceNewData = { emptyPreferences() }
-//            ), produceFile = {
-//                appContext.preferencesDataStoreFile(USER_PREFERENCES)
-//            }
-//        )
-//    }
+
 }
