@@ -10,3 +10,5 @@ interface ApiInterface {
     @GET("/movie/popular$API_KEY")
     suspend fun getPopularMovies(): Response<PopularMoviesModel>
 }
+
+
