@@ -1,6 +1,7 @@
 package com.lucassalbu.catalogodefilmeshilt.di
 
-import com.lucassalbu.catalogodefilmeshilt.serviceApi.ApiInterface
+import com.lucassalbu.catalogodefilmeshilt.serviceApi.GenreInterface
+import com.lucassalbu.catalogodefilmeshilt.serviceApi.PopularMovieInterface
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -31,13 +32,25 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideApiClient(): ApiInterface {
+    fun provideApiClient(): PopularMovieInterface {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(provideHttpCliente())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ApiInterface::class.java)
+            .create(PopularMovieInterface::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun provideGenreClient(): GenreInterface {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(provideHttpCliente())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(GenreInterface::class.java)
+
+
+    }
 }

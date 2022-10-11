@@ -1,5 +1,6 @@
 package com.lucassalbu.catalogodefilmeshilt.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -26,10 +27,10 @@ class MoviesActivity : AppCompatActivity() {
 
         initRecyclerView()
         getMovies()
+
     }
 
     private fun initRecyclerView() {
-        //alterar o linear Layout para o cardviewlayout
         binding.rvMovies.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         movieAdapter = MovieAdapter(this)
         binding.rvMovies.adapter = movieAdapter
@@ -42,6 +43,7 @@ class MoviesActivity : AppCompatActivity() {
             movieAdapter.notifyDataSetChanged()
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
