@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lucassalbu.catalogodefilmeshilt.models.PopularMoviesModel
-import com.lucassalbu.catalogodefilmeshilt.models.Result
 import com.lucassalbu.catalogodefilmeshilt.repositories.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

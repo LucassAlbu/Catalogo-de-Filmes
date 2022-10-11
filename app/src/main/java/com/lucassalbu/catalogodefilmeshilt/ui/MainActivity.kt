@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = getColor(R.color.status_bar)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, TesteActivity::class.java)
+            val intent = Intent(this, MoviesActivity::class.java)
             startActivity(intent)
             finish()
         },3000)
