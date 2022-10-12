@@ -10,11 +10,12 @@ import com.lucassalbu.catalogodefilmeshilt.R
 import com.lucassalbu.catalogodefilmeshilt.databinding.RvMovieLayoutItemBinding
 import com.lucassalbu.catalogodefilmeshilt.databinding.RvMoviesItemBinding
 import com.lucassalbu.catalogodefilmeshilt.models.Movie
+import com.lucassalbu.catalogodefilmeshilt.repositories.MovieClickListner
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.POSTER_BASE_URL
 
 
 class MovieAdapter(
-    private val context: Context
+    private val context: Context,
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movieList = ArrayList<Movie>()

@@ -1,5 +1,7 @@
 package com.lucassalbu.catalogodefilmeshilt.models
 
+val MOVIE_ID_EXTRA = "MovieExtra"
+
 data class Movie(
     val adult: Boolean,
     val backdrop_path: String,
