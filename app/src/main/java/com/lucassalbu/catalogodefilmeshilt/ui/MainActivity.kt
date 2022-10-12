@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.statusBarColor = getColor(R.color.status_bar)
+        window.statusBarColor = getColor(R.color.backgroud_Splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, MoviesActivity::class.java)

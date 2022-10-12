@@ -3,6 +3,7 @@ package com.lucassalbu.catalogodefilmeshilt.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lucassalbu.catalogodefilmeshilt.databinding.ActivityMoviesBinding
@@ -31,7 +32,7 @@ class MoviesActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        binding.rvMovies.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding.rvMovies.layoutManager = GridLayoutManager(this, 2)
         movieAdapter = MovieAdapter(this)
         binding.rvMovies.adapter = movieAdapter
     }

@@ -27,9 +27,9 @@ class MovieAdapter(
     class MovieViewHolder(private val binding: RvMoviesItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindingMovieList(movie: Movie, context: Context) {
-            binding.tvTitle.text = movie.title.toString().trim()
-            binding.tvReleaseYear.text = movie.release_date.toString().format()
-            binding.tvGenre.text = movie.genre_ids[0].toString().trim()
+//            binding.tvTitle.text = movie.title.toString().trim()
+//            binding.tvReleaseYear.text = movie.release_date.toString().format()
+//            binding.tvGenre.text = movie.genre_ids[0].toString().trim()
 
             Glide.with(binding.ivMoviePoster)
                 .load(POSTER_BASE_URL + movie.poster_path)

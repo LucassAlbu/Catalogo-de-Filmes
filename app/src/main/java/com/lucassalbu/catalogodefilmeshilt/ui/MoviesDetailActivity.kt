@@ -57,6 +57,11 @@ class MoviesDetailActivity : AppCompatActivity() {
                 .error(R.drawable.ic_catalogo_de_filmes)
                 .into(binding.imPosterMovie)
 
+            Glide.with(binding.ivposter)
+                .load(Contants.POSTER_BASE_URL + movieDetailModel.poster_path)
+                .error(R.drawable.ic_catalogo_de_filmes)
+                .into(binding.ivposter)
+
         }
     }
     private fun initListeners() {
