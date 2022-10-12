@@ -1,22 +1,17 @@
 package com.lucassalbu.catalogodefilmeshilt.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lucassalbu.catalogodefilmeshilt.databinding.ActivityMoviesBinding
-import com.lucassalbu.catalogodefilmeshilt.databinding.RvMoviesItemBinding
-import com.lucassalbu.catalogodefilmeshilt.models.MOVIE_ID_EXTRA
+
 import com.lucassalbu.catalogodefilmeshilt.models.Movie
-import com.lucassalbu.catalogodefilmeshilt.models.PopularMoviesModel
-import com.lucassalbu.catalogodefilmeshilt.repositories.MovieClickListner
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MoviesActivity : AppCompatActivity(), MovieClickListner {
+class MoviesActivity : AppCompatActivity() {
 
     lateinit var movieAdapter: MovieAdapter
 
@@ -31,6 +26,7 @@ class MoviesActivity : AppCompatActivity(), MovieClickListner {
 
         initRecyclerView()
         getMovies()
+
 
     }
 
@@ -55,10 +51,5 @@ class MoviesActivity : AppCompatActivity(), MovieClickListner {
 
     }
 
-    override fun onClick(movie: Movie) {
-        val intent = Intent(applicationContext, MoviesDetailActivity::class.java)
-        intent.putExtra(MOVIE_ID_EXTRA, movie.id)
-        startActivity(intent)
-    }
 
 }

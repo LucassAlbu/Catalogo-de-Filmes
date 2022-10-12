@@ -9,7 +9,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -17,8 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="4dp"
-        android:background="@color/black">
+        app:cardCornerRadius="4dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,6 +34,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:clickable="true"
                 android:elevation="16dp"
+                android:background="@android:color/darker_gray"
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -86,7 +86,8 @@
                         android:text="ano"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivMoviePoster"
-                        app:layout_constraintStart_toEndOf="@+id/ivMoviePoster" />
+                        app:layout_constraintStart_toEndOf="@+id/ivMoviePoster"
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

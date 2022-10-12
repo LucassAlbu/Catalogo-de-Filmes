@@ -2,8 +2,7 @@ package com.lucassalbu.catalogodefilmeshilt.di
 
 import com.lucassalbu.catalogodefilmeshilt.repositories.Repository
 import com.lucassalbu.catalogodefilmeshilt.repositories.RepositoryCDF
-import com.lucassalbu.catalogodefilmeshilt.serviceApi.GenreInterface
-import com.lucassalbu.catalogodefilmeshilt.serviceApi.PopularMovieInterface
+import com.lucassalbu.catalogodefilmeshilt.serviceApi.ApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,10 +16,9 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRepository(
-        popularMovieInterface: PopularMovieInterface,
-        genreInterface: GenreInterface
+        apiInterface: ApiInterface,
         ): Repository {
-        return RepositoryCDF(popularMovieInterface,genreInterface)
+        return RepositoryCDF(apiInterface)
     }
 
 }
