@@ -13,9 +13,8 @@ import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.POSTER_BASE_
 
 
 class MovieAdapter(
-    private val context: Context,
-
-) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+    private val context: Context
+    ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movieList = ArrayList<Movie>()
 
@@ -37,8 +36,8 @@ class MovieAdapter(
                 .into(binding.ivMoviePoster)
 
             binding.cdPrincipal.setOnClickListener {
-                val intent = Intent(context,MoviesDetailActivity::class.java)
-                intent.putExtra("movieID",movie.id)
+                val intent = Intent(context, MoviesDetailActivity::class.java)
+                intent.putExtra("movieID", movie.id)
                 context.startActivity(intent)
             }
 
@@ -46,8 +45,7 @@ class MovieAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding =
-            RvMoviesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = RvMoviesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(binding)
     }
 
