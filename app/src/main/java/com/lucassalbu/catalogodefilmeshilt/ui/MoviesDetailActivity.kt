@@ -39,6 +39,7 @@ class MoviesDetailActivity : AppCompatActivity() {
 
     }
 
+
     private fun getMovieDetails(movieID: Int) {
         viewModel.getMovieDetail(movieID)
         viewModel.movieDetailModel.observe(this) {
