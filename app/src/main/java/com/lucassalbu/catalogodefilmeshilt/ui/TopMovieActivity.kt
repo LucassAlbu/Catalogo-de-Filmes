@@ -3,18 +3,16 @@ package com.lucassalbu.catalogodefilmeshilt.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.lucassalbu.catalogodefilmeshilt.adapters.TopMovieAdapter
 import com.lucassalbu.catalogodefilmeshilt.databinding.ActivityMoviesBinding
-
 import com.lucassalbu.catalogodefilmeshilt.models.Movie
-import dagger.hilt.android.AndroidEntryPoint
+import com.lucassalbu.catalogodefilmeshilt.models.TopResult
 
-@AndroidEntryPoint
-class MoviesActivity : AppCompatActivity() {
+class TopMovieActivity : AppCompatActivity() {
 
-    lateinit var movieAdapter: MovieAdapter
+    lateinit var topMovieAdapter: PopularMovieAdapter
 
     private var _binding: ActivityMoviesBinding? = null
     private val binding get() = _binding!!
@@ -26,29 +24,22 @@ class MoviesActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initRecyclerView()
-        getMovies()
-
+        getTopMovies()
 
     }
 
     private fun initRecyclerView() {
-        binding.rvMovies.layoutManager = GridLayoutManager(this, 2)
-        movieAdapter = MovieAdapter(this)
-        binding.rvMovies.adapter = movieAdapter
+        binding.rvTopMovies.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL,false)
+        topMovieAdapter = PopularMovieAdapter(this)
+        binding.rvMovies.adapter = topMovieAdapter
     }
 
-    private fun getMovies() {
-        viewModel.getPopularMovie()
-        viewModel.popularMovie.observe(this) {
-            movieAdapter.setMovieList(it.movies as ArrayList<Movie>)
-            movieAdapter.notifyDataSetChanged()
+    private fun getTopMovies(){
+        viewModel.getTopMovie()
+        viewModel.topMovie.observe(this){
+            topMovieAdapter.setTopMovieList(it.topResults as ArrayList<TopResult>)
+            topMovieAdapter.notifyDataSetChanged()
         }
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
 
     }
 

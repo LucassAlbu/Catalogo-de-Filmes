@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.lucassalbu.catalogodefilmeshilt.R
 import com.lucassalbu.catalogodefilmeshilt.databinding.ActivityMoviesDetailBinding
-import com.lucassalbu.catalogodefilmeshilt.models.Movie
 import com.lucassalbu.catalogodefilmeshilt.models.MovieDetailModel
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,6 +52,7 @@ class MoviesDetailActivity : AppCompatActivity() {
             binding.tvYear.text = movieDetailModel.release_date.toString().trim() //como converter o modelo americano pro br
             binding.tvSinopse.text = movieDetailModel.overview.toString().trim()
 
+
             Glide.with(binding.imPosterMovie)
                 .load(Contants.POSTER_BASE_URL + movieDetailModel.backdrop_path)
                 .error(R.drawable.ic_catalogo_de_filmes)
@@ -67,7 +67,7 @@ class MoviesDetailActivity : AppCompatActivity() {
     }
     private fun initListeners() {
         binding.ibBack.setOnClickListener {
-            val intent = Intent(this, MoviesActivity::class.java)
+            val intent = Intent(this, PopularMoviesActivity::class.java)
             startActivity(intent)
         }
     }

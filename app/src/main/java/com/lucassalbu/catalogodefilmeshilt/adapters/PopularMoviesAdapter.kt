@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lucassalbu.catalogodefilmeshilt.R
-import com.lucassalbu.catalogodefilmeshilt.databinding.RvMoviesItemBinding
+import com.lucassalbu.catalogodefilmeshilt.databinding.RvActivityTopMovieItemBinding
+import com.lucassalbu.catalogodefilmeshilt.databinding.RvPopularMoviesItemBinding
 import com.lucassalbu.catalogodefilmeshilt.models.Movie
+import com.lucassalbu.catalogodefilmeshilt.models.TopResult
+import com.lucassalbu.catalogodefilmeshilt.utils.Contants
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.POSTER_BASE_URL
 
 
-class MovieAdapter(
+class PopularMovieAdapter(
     private val context: Context
-    ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<PopularMovieAdapter.MovieViewHolder>() {
 
     var movieList = ArrayList<Movie>()
 
@@ -23,29 +26,38 @@ class MovieAdapter(
         this.movieList = data
     }
 
-    class MovieViewHolder(private val binding: RvMoviesItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    var topMovieList = ArrayList<TopResult>()
+
+    @JvmName("setTopMovieList1")
+    fun setTopMovieList(data: ArrayList<TopResult>) {
+        this.topMovieList = data
+    }
+
+    class MovieViewHolder(
+        private val binding: RvPopularMoviesItemBinding,
+        private val binding2: RvActivityTopMovieItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bindingMovieList(movie: Movie, context: Context) {
 //            binding.tvTitle.text = movie.title.toString().trim()
 //            binding.tvReleaseYear.text = movie.release_date.toString().format()
 //            binding.tvGenre.text = movie.genre_ids[0].toString().trim()
 
-            Glide.with(binding.ivMoviePoster)
-                .load(POSTER_BASE_URL + movie.poster_path)
-                .error(R.drawable.ic_catalogo_de_filmes)
-                .into(binding.ivMoviePoster)
+            Glide.with(binding.ivMoviePoster).load(POSTER_BASE_URL + movie.poster_path)
+                .error(R.drawable.ic_catalogo_de_filmes).into(binding.ivMoviePoster)
 
             binding.cdPrincipal.setOnClickListener {
                 val intent = Intent(context, MoviesDetailActivity::class.java)
                 intent.putExtra("movieID", movie.id)
                 context.startActivity(intent)
             }
-
         }
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding = RvMoviesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = RvPopularMoviesItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
         return MovieViewHolder(binding)
     }
 

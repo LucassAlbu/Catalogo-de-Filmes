@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/backgroud"
     android:orientation="vertical"
-    tools:context=".ui.MoviesActivity">
+    tools:context=".ui.PopularMoviesActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Top Rated Movies"
+            android:text="Popular"
             android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/white"/>
@@ -31,12 +31,41 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movies"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        tools:listitem="@layout/rv_movies_item">
+        tools:listitem="@layout/rv_popular_movies_item">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/buton">
+
+        <TextView
+            android:id="@+id/tvtoprated"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="TopRated"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_topMovies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            tools:listitem="@layout/rv_activity_top_movie_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>

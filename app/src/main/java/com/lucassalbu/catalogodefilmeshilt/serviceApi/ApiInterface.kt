@@ -2,6 +2,7 @@ package com.lucassalbu.catalogodefilmeshilt.serviceApi
 
 import com.lucassalbu.catalogodefilmeshilt.models.MovieDetailModel
 import com.lucassalbu.catalogodefilmeshilt.models.PopularMoviesModel
+import com.lucassalbu.catalogodefilmeshilt.models.TopRatedModel
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
@@ -15,6 +16,9 @@ interface ApiInterface {
     suspend fun getMoviesDetails(
         @Path("movie_id") movieID: Int
     ): Response<MovieDetailModel>
+
+    @GET("/movie/top_rated$API_KEY&language=pt-BR")
+    suspend fun getTopRated(): Response<TopRatedModel>
 }
 
 

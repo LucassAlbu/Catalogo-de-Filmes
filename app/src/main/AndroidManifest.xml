@@ -10,16 +10,23 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon= "@drawable/ic_app_laucher"
+        android:icon="@drawable/ic_app_laucher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.CatalogoDeFilmeshilt"
         tools:targetApi="31">
         <activity
+            android:name=".ui.TopMovieActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.MoviesDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MoviesActivity"
+            android:name=".ui.PopularMoviesActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
