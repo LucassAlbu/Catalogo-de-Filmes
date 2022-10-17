@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.lucassalbu.catalogodefilmeshilt.models.Movie
 import com.lucassalbu.catalogodefilmeshilt.models.MovieDetailModel
 import com.lucassalbu.catalogodefilmeshilt.models.MoviesModel
 import com.lucassalbu.catalogodefilmeshilt.repositories.Repository
@@ -25,6 +26,9 @@ class MainViewModel @Inject constructor(
     private var _topMovie = MutableLiveData<MoviesModel>()
     val topMovie: LiveData<MoviesModel> = _topMovie
 
+    private var _similarMovie = MutableLiveData<MoviesModel>()
+    val similarMovie: LiveData<MoviesModel> = _similarMovie
+
     fun getPopularMovie() {
         viewModelScope.launch {
             val response = repository.getPopularMovie()
@@ -43,6 +47,13 @@ class MainViewModel @Inject constructor(
             val response = repository.getTopRated()
             _topMovie.postValue(response.body())
 
+        }
+    }
+
+    fun getSimilarMovies(movieID: Int){
+        viewModelScope.launch {
+            val response = repository.getSimilarMovies(movieID)
+            _similarMovie.postValue(response.body())
         }
     }
 

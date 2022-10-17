@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lucassalbu.catalogodefilmeshilt.R
-import com.lucassalbu.catalogodefilmeshilt.databinding.RvPopularMoviesItemBinding
+import com.lucassalbu.catalogodefilmeshilt.databinding.RvMoviesItemBinding
+
 import com.lucassalbu.catalogodefilmeshilt.models.Movie
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.POSTER_BASE_URL
 
@@ -25,7 +26,7 @@ class MovieAdapter(
 
 
     class MovieViewHolder(
-        private val binding: RvPopularMoviesItemBinding
+        private val binding: RvMoviesItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bindingMovieList(movie: Movie, context: Context) {
 //            binding.tvTitle.text = movie.title.toString().trim()
@@ -45,7 +46,7 @@ class MovieAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding = RvPopularMoviesItemBinding.inflate(
+        val binding = RvMoviesItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return MovieViewHolder(binding)

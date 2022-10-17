@@ -18,6 +18,11 @@ interface ApiInterface {
 
     @GET("/3/movie/top_rated$API_KEY&language=pt-BR")
     suspend fun getTopRated(): Response<MoviesModel>
+
+    @GET("/3//movie/{movie_id}/similar$API_KEY&language=pt-BR\"")
+    suspend fun getSimilarMovies(
+        @Path("movie_id") movieID: Int
+    ): Response<MoviesModel>
 }
 
 

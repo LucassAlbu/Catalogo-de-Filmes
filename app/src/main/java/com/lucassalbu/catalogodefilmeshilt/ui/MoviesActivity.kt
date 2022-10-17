@@ -11,7 +11,7 @@ import com.lucassalbu.catalogodefilmeshilt.models.Movie
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PopularMoviesActivity : AppCompatActivity() {
+class MoviesActivity : AppCompatActivity() {
 
     lateinit var popularmovieAdapter: MovieAdapter
     lateinit var topRatedAdapter : MovieAdapter

@@ -22,5 +22,9 @@ class RepositoryCDF @Inject constructor(
         return apiInterface.getTopRated()
     }
 
+    override suspend fun getSimilarMovies(movieID: Int): Response<MoviesModel> {
+        return apiInterface.getSimilarMovies(movieID)
+    }
+
 
 }

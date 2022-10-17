@@ -19,7 +19,7 @@
             android:name=".ui.MoviesDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.PopularMoviesActivity"
+            android:name=".ui.MoviesActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
