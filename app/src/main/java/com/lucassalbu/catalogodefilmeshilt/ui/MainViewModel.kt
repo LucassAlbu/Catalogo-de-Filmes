@@ -5,8 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lucassalbu.catalogodefilmeshilt.models.MovieDetailModel
-import com.lucassalbu.catalogodefilmeshilt.models.PopularMoviesModel
-import com.lucassalbu.catalogodefilmeshilt.models.TopRatedModel
+import com.lucassalbu.catalogodefilmeshilt.models.MoviesModel
 import com.lucassalbu.catalogodefilmeshilt.repositories.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,14 +16,14 @@ class MainViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    private var _popularMovie = MutableLiveData<PopularMoviesModel>()
-    val popularMovie: LiveData<PopularMoviesModel> = _popularMovie
+    private var _popularMovie = MutableLiveData<MoviesModel>()
+    val popularMovie: LiveData<MoviesModel> = _popularMovie
 
     private var _movieDetailModel = MutableLiveData<MovieDetailModel>()
     val movieDetailModel: LiveData<MovieDetailModel> = _movieDetailModel
 
-    private var _topMovie = MutableLiveData<TopRatedModel>()
-    val topMovie: LiveData<TopRatedModel> = _topMovie
+    private var _topMovie = MutableLiveData<MoviesModel>()
+    val topMovie: LiveData<MoviesModel> = _topMovie
 
     fun getPopularMovie() {
         viewModelScope.launch {

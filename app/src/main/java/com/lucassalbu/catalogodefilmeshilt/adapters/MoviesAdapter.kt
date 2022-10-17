@@ -7,17 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lucassalbu.catalogodefilmeshilt.R
-import com.lucassalbu.catalogodefilmeshilt.databinding.RvActivityTopMovieItemBinding
 import com.lucassalbu.catalogodefilmeshilt.databinding.RvPopularMoviesItemBinding
 import com.lucassalbu.catalogodefilmeshilt.models.Movie
-import com.lucassalbu.catalogodefilmeshilt.models.TopResult
-import com.lucassalbu.catalogodefilmeshilt.utils.Contants
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants.Companion.POSTER_BASE_URL
 
 
-class PopularMovieAdapter(
+class MovieAdapter(
     private val context: Context
-) : RecyclerView.Adapter<PopularMovieAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movieList = ArrayList<Movie>()
 
@@ -26,16 +23,9 @@ class PopularMovieAdapter(
         this.movieList = data
     }
 
-    var topMovieList = ArrayList<TopResult>()
-
-    @JvmName("setTopMovieList1")
-    fun setTopMovieList(data: ArrayList<TopResult>) {
-        this.topMovieList = data
-    }
 
     class MovieViewHolder(
-        private val binding: RvPopularMoviesItemBinding,
-        private val binding2: RvActivityTopMovieItemBinding
+        private val binding: RvPopularMoviesItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bindingMovieList(movie: Movie, context: Context) {
 //            binding.tvTitle.text = movie.title.toString().trim()

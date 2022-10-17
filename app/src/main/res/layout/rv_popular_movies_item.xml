@@ -21,6 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:srcCompat="@tools:sample/avatars"
-            android:background="#3E3E3E"/>
+            android:background="@color/backgroud"/>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

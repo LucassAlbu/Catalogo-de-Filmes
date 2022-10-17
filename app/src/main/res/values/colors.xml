@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="status_bar">#0099B9</color>
     <color name="buton">#0000</color>
-    <color name="backgroud_Splash">#434343</color>
-    <color name="backgroud">#3E3E3E</color>
+    <color name="backgroud_Splash">#002c65</color>
+    <color name="backgroud">#091b30</color>
 </resources>

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 
 
-data class PopularMoviesModel(
+data class MoviesModel(
     val page: Int,
     @SerializedName("results")
     val movies: List<Movie>,

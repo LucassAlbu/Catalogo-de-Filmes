@@ -8,25 +8,15 @@
     android:orientation="vertical"
     tools:context=".ui.PopularMoviesActivity">
 
-    <androidx.cardview.widget.CardView
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="2dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/buton">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Popular"
-            android:textSize="23sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
-
-    </androidx.cardview.widget.CardView>
+        android:text="Popular"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,38 +24,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        tools:listitem="@layout/rv_popular_movies_item">
-
+        tools:itemCount="3"
+        tools:listitem="@layout/rv_popular_movies_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal">
     </androidx.recyclerview.widget.RecyclerView>
 
-    <androidx.cardview.widget.CardView
+
+    <TextView
+        android:id="@+id/tvtoprated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="2dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/buton">
+        android:text="TopRated"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"/>
 
-        <TextView
-            android:id="@+id/tvtoprated"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TopRated"
-            android:textSize="23sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_topMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        tools:itemCount="3"
+        tools:listitem="@layout/rv_popular_movies_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_topMovies"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            tools:listitem="@layout/rv_activity_top_movie_item">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </androidx.cardview.widget.CardView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>

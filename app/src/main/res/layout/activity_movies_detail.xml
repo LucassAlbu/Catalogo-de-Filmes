@@ -94,18 +94,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:elevation="8dp"
-        app:cardBackgroundColor="@color/backgroud">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tvresumo"
                 android:layout_width="match_parent"
@@ -114,7 +102,8 @@
                 android:text="Sinopse:"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="16dp"/>
 
             <TextView
                 android:id="@+id/tvSinopse"
@@ -122,9 +111,19 @@
                 android:layout_height="wrap_content"
                 android:text="sinopse"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:textSize="15sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSimilarMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        tools:itemCount="3"
+        tools:listitem="@layout/rv_popular_movies_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        />
 
 </LinearLayout>
