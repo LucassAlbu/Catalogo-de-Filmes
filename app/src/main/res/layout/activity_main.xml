@@ -17,4 +17,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_app_splash"
         android:foregroundGravity="center"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

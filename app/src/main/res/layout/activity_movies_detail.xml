@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
 
     <LinearLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/backgroud"
         android:orientation="vertical"
         tools:context=".ui.MoviesDetailActivity">
 
-        <ImageButton
-            android:id="@+id/ibBack"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:background="@color/buton"
-            android:src="@drawable/ic_arrow" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/backgroud"
+            android:elevation="4dp"
+            android:theme="@style/Theme.toobar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white"/>
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cdposter"
@@ -118,6 +125,17 @@
             android:textColor="@color/white"
             android:textSize="15sp" />
 
+        <TextView
+            android:id="@+id/tvSimilars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Titulos Semelhantes"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSimilarMovies"
             android:layout_width="wrap_content"
@@ -126,5 +144,8 @@
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="3"
-            tools:listitem="@layout/rv_movies_item" /></LinearLayout>
+            tools:listitem="@layout/rv_movies_item" />
+
+    </LinearLayout>
+
 </ScrollView>

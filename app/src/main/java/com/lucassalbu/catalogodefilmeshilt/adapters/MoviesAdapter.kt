@@ -28,6 +28,7 @@ class MovieAdapter(
     class MovieViewHolder(
         private val binding: RvMoviesItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+
         fun bindingMovieList(movie: Movie, context: Context) {
 //            binding.tvTitle.text = movie.title.toString().trim()
 //            binding.tvReleaseYear.text = movie.release_date.toString().format()

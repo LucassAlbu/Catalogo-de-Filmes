@@ -1,9 +1,14 @@
 package com.lucassalbu.catalogodefilmeshilt.ui
 
+import android.app.Activity
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,6 +18,7 @@ import com.lucassalbu.catalogodefilmeshilt.models.Movie
 import com.lucassalbu.catalogodefilmeshilt.models.MovieDetailModel
 import com.lucassalbu.catalogodefilmeshilt.utils.Contants
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MoviesDetailActivity : AppCompatActivity() {
@@ -30,6 +36,7 @@ class MoviesDetailActivity : AppCompatActivity() {
         _binding = ActivityMoviesDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val movieID = intent.getIntExtra("movieID", 0)
 
         if (movieID != null) {
@@ -38,10 +45,29 @@ class MoviesDetailActivity : AppCompatActivity() {
                 bindingDetails(it)
             }
         }
-        initListeners()
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = ""
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayHomeAsUpEnabled(true)
+        }
+
+        // initListeners()
         initRecyclerView()
         getSimilarMovies(movieID)
+
+
     }
+    override fun onBackPressed() {
+
+        val intent = Intent(applicationContext, MoviesDetailActivity::class.java)
+        startActivity(intent)
+        super.onBackPressed()
+    }
+
+
+
 
     private fun initRecyclerView() {
         binding.rvSimilarMovies.layoutManager =
@@ -84,19 +110,22 @@ class MoviesDetailActivity : AppCompatActivity() {
                 .into(binding.ivposter)
 
         }
+
+
     }
 
-    private fun initListeners() {
-        binding.ibBack.setOnClickListener {
-            val intent = Intent(this, MoviesActivity::class.java)
-            startActivity(intent)
-        }
-    }
+//    private fun initListeners() {
+//        binding.ibBack.setOnClickListener {
+//            val intent = Intent(this, MoviesActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
 }
 
 //função no on create para pegar o Movieid e já setar oq vai ser oq
 //getdetails
 //setdata
+
 
 
 
